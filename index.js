@@ -132,7 +132,7 @@ app.post('/api/projects/:id/invite', ClerkExpressRequireAuth(), async (req, res)
     const token = crypto.randomBytes(32).toString('hex');
     const newInvite = new Invite({ projectId, email, token });
     await newInvite.save();
-    const inviteLink = `http://localhost:3000/invite/${token}`;
+    const inviteLink = `https://project-management-app-frontend-olive.vercel.app/invite/${token}`;
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS }
