@@ -5,6 +5,7 @@ const ProjectSchema = new mongoose.Schema({
   description: { type: String },
   members: [{
     clerkUserId: { type: String, required: true },
+    email: { type: String },
     role: { type: String, enum: ['Admin', 'Manager', 'Developer', 'Viewer','Member'], default: 'Member' }
   }],
   createdAt: { type: Date, default: Date.now }
